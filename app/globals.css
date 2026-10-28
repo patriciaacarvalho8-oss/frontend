@@ -1,4 +1,4 @@
-:root {
+:root :root {
   /* Cores */
   --color-text: #0C0E11;
   --color-text-muted: #7B85A1;
@@ -7,22 +7,26 @@
   --color-surface: #FFFFFF;
   --color-border: #D2D6DA;
   --color-border-strong: #C7CFD6;
+
   --color-primary: #7A0000;
   --color-primary-strong: #920002;
   --color-primary-soft: #E7EAF1;
+
   --color-success: #1FBA50;
   --color-error: #C23B3B;
   --color-warning: #C9821C;
+
   --color-alunos: #0052EA;
   --color-cursos: #A202FF;
   --color-funcionarios: #1F8A70;
   --color-matriculas: #D88B1D;
-  --color-transparent-surface: rgba(255, 255, 255, 0.2); /* #ffffff33 */
+
+  --color-transparent-surface: rgba(255, 255, 255, 0.2);
 
   /* Fontes */
   --font-text: var(--font-fugaz-one);
   --font-title: var(--font-hermeneus-one);
-  --font-data: var(--font-hina0,-mincho);
+  --font-data: var(--font-space-grotesk);
 
   /* Tamanhos de textos */
   --text-h1: 26px;
@@ -34,13 +38,13 @@
   --text-data: 10px;
 
   /* Peso das fontes */
-  --font-weight-h1: 700; /* bold*/
+  --font-weight-h1: 700;
   --font-weight-h2: 700;
   --font-weight-h3: 700;
-  --font-weight-body: 400; /* regular */
+  --font-weight-body: 400;
   --font-weight-label: 700;
   --font-weight-caption: 400;
-  --font-weight-data: 300; /* light */
+  --font-weight-data: 300;
 
   /* Espaçamentos */
   --spacing-xs: 4px;
@@ -60,7 +64,26 @@
   --breakpoint-tablet: 640px;
   --breakpoint-desktop: 1024px;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
