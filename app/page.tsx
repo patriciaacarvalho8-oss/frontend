@@ -1,24 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import Button from "@/components/Button";
 import styles from "./page.module.css";
+import { login } from "./actions";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (!email || !senha) {
-      return;
-    }
-
-    console.log("Login:", email);
-
-    // Depois conectaremos ao backend.
-  }
 
   return (
     <main className={styles.page}>
@@ -41,18 +25,17 @@ export default function Login() {
       </header>
 
       <section className={styles.main}>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} action={login}>
           <div className={styles.inputGroup}>
             <label htmlFor="email">
               Email <span>*</span>
             </label>
 
             <input
-              id="email"
+              id="email" name="email"
               type="email"
               placeholder="nome@escola.edu.pr"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+
               required
             />
           </div>
@@ -66,21 +49,17 @@ export default function Login() {
               id="senha"
               type="password"
               placeholder="********"
-              value={senha}
-              onChange={(event) => setSenha(event.target.value)}
               required
+              name="senha"
             />
           </div>
 
-          <div className={styles.buttonContainer}>
             <Button
               type="submit"
               variant="secondary"
-              className={styles.loginButton}
             >
               ENTRAR
             </Button>
-          </div>
         </form>
       </section>
     </main>

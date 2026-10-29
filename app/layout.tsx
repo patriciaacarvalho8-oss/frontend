@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fugaz_One, Hina_Mincho, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fugazOne = Fugaz_One({
+  variable: "--font-fugaz-one",
   subsets: ["latin"],
+  weight: ["400"]
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const hinaMincho = Hina_Mincho({
+  variable: "--font-hina-mincho",
+  subsets: ["latin"],
+  weight: ["400"]
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -19,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${fugazOne.variable} ${hinaMincho.variable} ${spaceGrotesk.variable}`}>
       <body>{children}</body>
     </html>
   );
