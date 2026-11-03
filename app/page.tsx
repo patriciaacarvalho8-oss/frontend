@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { login } from "./actions";
 
 export default function Login() {
-
+ 
   return (
     <main className={styles.page}>
       <header className={styles.header}>
@@ -20,7 +20,7 @@ export default function Login() {
           className={styles.iconButton}
           aria-label="Notificações"
         >
-          ♧
+        
         </button>
       </header>
 
