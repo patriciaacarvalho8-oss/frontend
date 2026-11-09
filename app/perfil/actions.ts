@@ -42,7 +42,7 @@ export async function getFuncionarioData() {
     return data;
 }
 
-export default async function editFuncionarioData(formData: FormData, id: number) {
+export default async function editFuncionarioData(id: number, formData: FormData ) {
     const nome = formData.get("nome");
     const email = formData.get("email");
     const telefone = formData.get("telefone");

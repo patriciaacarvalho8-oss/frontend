@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 
-export async function prox(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get("@gestao-escolar/token")?.value;
 
   if (!token) {

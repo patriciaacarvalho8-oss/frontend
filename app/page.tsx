@@ -1,9 +1,11 @@
 import Button from "@/components/Button";
 import styles from "./page.module.css";
 import { login } from "./actions";
+import { Camera } from 'lucide-react';
+
 
 export default function Login() {
- 
+
   return (
     <main className={styles.page}>
       <header className={styles.header}>
@@ -19,8 +21,9 @@ export default function Login() {
           type="button"
           className={styles.iconButton}
           aria-label="Notificações"
+
         >
-        
+          <Camera size={30} />
         </button>
       </header>
 
@@ -54,12 +57,13 @@ export default function Login() {
             />
           </div>
 
-            <Button
-              type="submit"
-              variant="secondary"
-            >
-              ENTRAR
-            </Button>
+          <Button
+            type="submit"
+            variant="secondary"
+
+          >
+            ENTRAR
+          </Button>
         </form>
       </section>
     </main>

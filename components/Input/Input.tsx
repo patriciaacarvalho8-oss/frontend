@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import styles from "./input.module.css";
+import styles from "./Input.module.css";
 
 interface Props extends ComponentProps<"input">{
   label?: string;

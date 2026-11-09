@@ -2,70 +2,102 @@
 import Button from "@/components/Button";
 import editFuncionarioData, { getFuncionarioData } from "./actions";
 import Input from "@/components/Input/Input";
+import styles from "./page.module.css";
 
 export default async function Perfil() {
   const funcionario = await getFuncionarioData();
 
-  const editAction = editFuncionarioData.brid(null, funcionario.id)
-  return (<div>
-    <h1>Meu Perfil</h1>
+  const editAction = editFuncionarioData.bind(null, funcionario.id);
 
-    <form action={editFuncionarioData}>
-      <Input
-        label="Nome Completo"
-        required
-        defaultValue={funcionario.nome}
-        name="nome"
-      />
+  return (
+    <main className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.photo}> 
+        </div>
 
-      <Input
-        label="Email"
-        type="email"
-        required
-        defaultValue={funcionario.email}
-        name="email"
-      />
+        <h1>{funcionario.nome}</h1>
+      </header>
 
-      <Input
-        label="Telefone"
-        required
-        defaultValue={funcionario.telefone}
-        name="telefone"
-      />
+      <section className={styles.content}>
+        <form action={editAction} className={styles.form}>
 
-      <Input
-        label="Data de nascimento"
-        required
-        defaultValue={funcionario.nascimento}
-        name="nascimento"
-      />
+          <div className={styles.field}>
+            <Input
+              label="CPF"
+              required
+              defaultValue={funcionario.cpf}
+              name="cpf"
+            />
+          </div>
 
-      <Input
-        label="CPF"
-        required
-        defaultValue={funcionario.cpf}
-        name="cpf"
-      />
+          <div className={styles.field}>
+            <Input
+              label="Telefone"
+              required
+              defaultValue={funcionario.telefone}
+              name="telefone"
+            />
+          </div>
 
-      <Input
-        label="Endereço"
-        required
-        defaultValue={funcionario.endereço}
-        name="endereco"
-      />
+          <div className={styles.field}>
+            <Input
+              label="Email"
+              type="email"
+              required
+              defaultValue={funcionario.email}
+              name="email"
+            />
+          </div>
 
-      <Input
-        label="Cargo"
-        required
-        defaultValue={funcionario.cargo}
-        name="cargo"
-      />
+          <div className={styles.field}>
+            <Input
+              label="Data de nascimento"
+              required
+              defaultValue={funcionario.nascimento}
+              name="nascimento"
+            />
+          </div>
 
-      <Input
-        label="Nova Senha"
-        name="senha" />
+          <div className={styles.field}>
+            <Input
+              label="Nome Completo"
+              required
+              defaultValue={funcionario.nome}
+              name="nome"
+            />
+          </div>
 
-      <Button type="submit">Salvar Alterações</Button>
-    </form>
-  </div>);
+          <div className={styles.field}>
+            <Input
+              label="Endereço"
+              required
+              defaultValue={funcionario.endereço}
+              name="endereco"
+            />
+          </div>
+
+          <div className={styles.field}>
+            <Input
+              label="Cargo"
+              required
+              defaultValue={funcionario.cargo}
+              name="cargo"
+            />
+          </div>
+
+          <div className={styles.field}>
+            <Input
+              label="Nova Senha"
+              name="senha"
+            />
+          </div>
+
+          <div className={styles.buttonContainer}>
+            <Button type="submit">Salvar Alterações</Button>
+          </div>
+
+        </form>
+      </section>
+    </main>
+  );
 }
