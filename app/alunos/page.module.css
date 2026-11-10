@@ -1,0 +1,192 @@
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #800000;
+  padding: 12px 4.5%;
+  color: #ffffff;
+  font-family: Georgia, serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 38px;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: white;
+  color: #800000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.main {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 44px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 0 5px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #fff0f0;
+  border-radius: 9px;
+  height: 26px;
+  padding: 0 10px;
+  flex: 1;
+  color: #800000;
+}
+
+.search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #800000;
+  font-size: 11px;
+  padding-left: 10px;
+}
+
+.search input::placeholder {
+  color: #800000;
+}
+
+.newButton {
+  height: 27px;
+  min-width: 87px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff0f0;
+  color: #800000;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.newButton:hover {
+  background-color: #ffffff;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #800000;
+  font-size: 12px;
+  text-align: left;
+}
+
+.table thead {
+  background-color: #fff0f0;
+}
+
+.table th {
+  height: 47px;
+  padding: 0 10px;
+  font-weight: normal;
+}
+
+.table td {
+  height: 44px;
+  padding: 0 10px;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.editButton,
+.deleteButton {
+  width: 28px;
+  height: 19px;
+  border: 1px solid #a00000;
+  border-radius: 8px;
+  background-color: white;
+  color: #800000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  background-color: #fff0f0;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 12px 18px;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .search {
+    min-width: 100%;
+  }
+
+  .newButton {
+    margin-left: auto;
+  }
+
+  .table {
+    min-width: 550px;
+  }
+}
