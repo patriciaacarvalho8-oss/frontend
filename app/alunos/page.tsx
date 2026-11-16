@@ -1,18 +1,30 @@
 
 import { getAlunoLista } from "./actions";
 import styles from "./page.module.css";
+import Link from "next/link";
+
+interface Aluno {
+    id: number;
+    nome: string;
+    cpf: string;
+    cursos: {
+        id: number;
+        Nome: string;
+    }[];
+}
 
 export default async function Alunos() {
     const alunos = await getAlunoLista();
-    console.log(alunos);
+
+    const listaAlunos: Aluno[] = Array.isArray(alunos) ? alunos : [];
 
     return (
         <main className={styles.page}>
 
             <header className={styles.header}>
-                <button className={styles.backButton}>
+                <Link href="/menu" className={styles.backButton}>
                     ← Voltar ao menu
-                </button>
+                </Link>
 
                 <div className={styles.profile}>
                     PA
@@ -21,23 +33,34 @@ export default async function Alunos() {
 
             <section className={styles.main}>
 
-                <h1 className={styles.title}>Alunos</h1>
+                <h1 className={styles.title}>
+                    Alunos
+                </h1>
 
                 <div className={styles.actions}>
+
                     <div className={styles.search}>
+                        <span>⌕</span>
+
                         <input
                             type="text"
                             placeholder="Buscar aluno..."
                         />
                     </div>
 
-                    <button className={styles.newButton}>
+                    <Link href="/alunos/novo" className={styles.newButton}>
                         + Novo aluno
-                    </button>
+                    </Link>
+
                 </div>
+
+                {typeof alunos === "string" && (
+                    <p>{alunos}</p>
+                )}
 
                 <div className={styles.tableContainer}>
                     <table className={styles.table}>
+
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -48,29 +71,57 @@ export default async function Alunos() {
                         </thead>
 
                         <tbody>
-                            {Array.isArray(alunos) && alunos.map((aluno) => (
-                                <tr key={alunos.id}>
-                                    <td>{alunos.nome}</td>
-                                    <td>{alunos.cpf}</td>
-                                    <td>{alunos.cursos.length}</td>
-                                    <td>
-                                        <div className={styles.buttons}>
-                                            <button className={styles.editButton}>
-                                                ✎
-                                            </button>
+                            {listaAlunos.length > 0 ? (
+                                listaAlunos.map((aluno) => (
+                                    <tr key={aluno.id}>
+                                        <td>{aluno.nome}</td>
 
-                                            <button className={styles.deleteButton}>
-                                                ♧
-                                            </button>
-                                        </div>
+                                        <td>{aluno.cpf}</td>
+
+                                        <td>
+                                            {aluno.cursos?.length > 0
+                                                ? aluno.cursos.map(
+                                                    (curso) => curso.Nome
+                                                ).join(", ")
+                                                : "Sem cursos"}
+                                        </td>
+
+                                        <td>
+                                            <div className={styles.buttons}>
+
+                                                <Link
+                                                    href={`/alunos/${aluno.id}`}
+                                                    className={styles.editButton}
+                                                    title="Editar aluno"
+                                                >
+                                                    ✎
+                                                </Link>
+
+                                                <button
+                                                    className={styles.deleteButton}
+                                                    title="Excluir aluno"
+                                                >
+                                                    ×
+                                                </button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan={4}>
+                                        Nenhum aluno encontrado.
                                     </td>
                                 </tr>
-                            ))}
+                            )}
                         </tbody>
+
                     </table>
                 </div>
 
             </section>
+
         </main>
     );
 }

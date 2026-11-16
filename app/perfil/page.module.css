@@ -1,104 +1,160 @@
 
 .page {
     min-height: 100vh;
-    background-color: #414141;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    background-color: #ffffff;
+    color: #0C0E11;
+    font-family: Georgia, serif;
 }
 
 /* Cabeçalho */
-.header {
+
+.profileHeader {
     width: 100%;
-    min-height: 250px;
+    height: 218px;
     background-color: #800000;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
     color: white;
+    padding: 15px;
 }
 
-/* Foto */
-.photo {
-    width: 155px;
-    height: 155px;
+.avatarContainer {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.avatar {
+    width: 136px;
+    height: 136px;
     border-radius: 50%;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 90px;
 }
 
-/* Nome */
-.header h1 {
-    font-size: 16px;
+.cameraButton {
+    position: absolute;
+    right: -5px;
+    bottom: -3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #800000;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.name {
+    font-size: 14px;
     font-weight: normal;
-    margin: 0;
+    margin-top: 5px;
+    color: white;
 }
 
 /* Conteúdo */
+
 .content {
     width: 100%;
-    flex: 1;
-    background-color: white;
-    padding: 45px 9%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 35px 30px;
 }
 
-/* Formulário */
-.form {
+.fields {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 22%;
-    row-gap: 28px;
-    align-items: end;
+    column-gap: 125px;
+    row-gap: 25px;
 }
 
-/* Campos */
 .field {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 7px;
 }
 
-/* Botão */
-.buttonContainer {
-    grid-column: 1 / -1;
+.field label {
+    font-size: 9px;
+    color: #0C0E11;
+}
+
+.field input {
+    width: 100%;
+    height: 43px;
+    padding: 0 12px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: #d9d9d9;
+    color: #0C0E11;
+    font-family: Georgia, serif;
+    font-size: 10px;
+}
+
+.footer {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 50px;
+}
+
+.exitButton {
+    width: 69px;
+    height: 27px;
+    border: none;
+    border-radius: 3px;
+    background-color: #d9d9d9;
+    color: #0C0E11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.exitButton:hover {
+    background-color: #c5c5c5;
 }
 
 /* Responsividade */
+
 @media (max-width: 600px) {
-    .page {
-        padding: 10px;
+
+    .profileHeader {
+        height: 200px;
     }
 
-    .header {
-        min-height: 220px;
+    .avatar {
+        width: 115px;
+        height: 115px;
     }
 
-    .photo {
-        width: 125px;
-        height: 125px;
-        font-size: 70px;
+    .avatar svg {
+        width: 90px;
+        height: 90px;
     }
 
     .content {
-        padding: 30px 20px;
+        padding: 35px 22px;
     }
 
-    .form {
+    .fields {
         grid-template-columns: 1fr;
         gap: 22px;
     }
 
-    .buttonContainer {
-        grid-column: 1;
-        margin-top: 20px;
+    .field input {
+        height: 42px;
+    }
+
+    .footer {
+        margin-top: 35px;
     }
 }
